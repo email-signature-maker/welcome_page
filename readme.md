@@ -1,0 +1,1 @@
+It's a welcome page for Email Signature Maker chrome extension
