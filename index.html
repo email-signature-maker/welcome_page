@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signature Maker - Installed</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@latest/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: rgb(255, 255, 255);
+            font-family: 'Open Sauce One', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        #main {
+            min-height: 100vh;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+           }
+
+        nav {
+            background-color: rgb(238, 244, 255);
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            gap: 14px;
+            height: 79px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-top {
+            display: flex;
+            flex-direction: row;
+            flex: none;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            width: min-content;
+            height: min-content;
+            padding: 10px 0 10px 10px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .nav-logo {
+            flex: none;
+            width: 4px;
+            height: 24px;
+            position: relative;
+        }
+
+        .nav-image {
+            aspect-ratio: 1.35437;
+            height: 45px;
+            flex: none;
+            width: 61px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .nav-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-position: center;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            flex: none;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: min-content;
+            height: min-content;
+            padding: 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        .nav-text {
+            user-select: none;
+            white-space: pre;
+            flex: none;
+            width: auto;
+            height: auto;
+            position: relative;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            line-height: 2em;
+            text-align: center;
+            color: rgb(58, 99, 174);
+        }
+
+        .nav-bottom-line {
+            z-index: 1;
+            flex: none;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: visible;
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .hero {
+            height: min-content;
+            overflow: clip;
+            background-color: #eef4ff;
+            display: flex;
+            flex-flow: column;
+            flex: none;
+            place-content: center;
+            align-items: center;
+            gap: 7px;
+            width: 100%;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-flow: column;
+            flex: none;
+            place-content: center;
+            align-items: center;
+            gap: 0;
+            width: 100%;
+            height: min-content;
+            padding: 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        .hero-title {
+            flex: none;
+            width: 100%;
+            height: auto;
+            position: relative;
+            font-size: 38px;
+            line-height: 1.6em;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .hero-title strong {
+            font-weight: 700;
+        }
+
+        .hero-title .blue-text {
+            color: rgb(58, 99, 174);
+        }
+
+        .hero-instruction {
+            flex: none;
+            width: 100%;
+            height: auto;
+            position: relative;
+            font-size: 20px;
+            letter-spacing: -0.04em;
+            line-height: 1.3em;
+            text-align: center;
+        }
+
+        .image-container {
+            aspect-ratio: 1.6;
+            height: 429px;
+            border-radius: 20px;
+            display: flex;
+            flex-flow: column;
+            flex: none;
+            place-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 499px;
+            max-width: 100%;
+            padding: 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        .image-wrapper {
+            aspect-ratio: 1.51432;
+            height: 429px;
+            flex: none;
+            width: 650px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .image-wrapper img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-position: center;
+            object-fit: cover;
+        }
+
+        .instruction-text {
+            flex: none;
+            width: 100%;
+            height: auto;
+            position: relative;
+            font-size: 20px;
+            letter-spacing: -0.04em;
+            line-height: 0.7em;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-instruction,
+            .instruction-text {
+                font-size: 16px;
+            }
+
+            .image-container {
+                width: 100%;
+                max-width: 499px;
+            }
+
+            .image-wrapper {
+                width: 100%;
+                max-width: 650px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="container">
+            <nav>
+                <div class="nav-top">
+                    <div class="nav-logo"></div>
+                </div>
+                <div class="nav-image">
+                    <img src="PvKHiCRkMTnPGwlM4NGGpDxu0I.png" alt="Email Signature Maker">
+                </div>
+                <div class="nav-links">
+                    <div class="nav-text">Email Signature Maker</div>
+                </div>
+                <div class="nav-bottom-line"></div>
+            </nav>
+        </div>
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-title">
+                    <strong>Email Signature Maker Installed</strong>
+                </div>
+                <div class="hero-instruction">
+                    <br>Click on the puzzle in the top right corner of your browser.<br>Then click the pin icon next to the extension:
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="MhNKlgdMZyT3sJb25HzOLHXxmUY.png" alt="Extension instructions">
+                </div>
+            </div>
+            <div class="instruction-text">
+                <br class="trailing-break">
+            </div>
+            <div class="instruction-text">
+                <br>Click on the extension icon to start using Email Signature Maker:
+            </div>
+            <div class="instruction-text">
+                <br class="trailing-break">
+            </div>
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="FvbdDWtJPRnwfvo8cWYIR0WeR0.png" alt="Extension icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
